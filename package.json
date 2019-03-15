@@ -2,11 +2,9 @@
   "name": "git-submodule-tool",
   "version": "1.0.0",
   "description": "A command line tool to simplify working with git submodules.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc -p .",
-    "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ryan Wilson",
   "license": "MIT",
@@ -25,10 +23,5 @@
     "git",
     "submodule"
   ],
-  "preferGlobal": true,
-  "devDependencies": {
-    "@types/node": "^11.11.3",
-    "nodemon": "^1.18.10",
-    "typescript": "^3.3.3333"
-  }
+  "preferGlobal": true
 }

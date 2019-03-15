@@ -3,7 +3,7 @@ import chalk from 'chalk';
 export function printLines(text, tab) {
     for (let i = 0; i < text.lines.length; i++) {
         const row = text.lines[i];
-        let print: any = () => {};
+        let print = () => {};
         if (text.coloredLines.indexOf(i) > -1) {
             print = (s) => console.log(chalk.green(s));
         } else {
