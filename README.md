@@ -17,6 +17,8 @@ gst <command> [options]
 ```
 
 ## Commands
+These are the currently supported commands:
+
 | Command | Usage | How it works |
 | --- | --- | --- |
 | branch | | |

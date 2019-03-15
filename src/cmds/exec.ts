@@ -1,6 +1,8 @@
-const shell = require("shelljs");
+import shell from "shelljs";
 
-module.exports = (argLine) => {
+export function execute(argLine) {
     shell.exec(`git ${argLine}`);
     shell.exec(`git submodule foreach --recursive git ${argLine}`);
 }
+
+export default execute;
