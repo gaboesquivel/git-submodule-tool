@@ -1,4 +1,4 @@
-const splitSpaces = require("./splitSpaces");
+const splitLines = require("./splitLines");
 
 /**
  * Takes a string of output from a git command run with 'git submodule foreach --recursive'
@@ -41,10 +41,10 @@ module.exports = (output) => {
     for (let i = 0; i < repoStrings.length; i++) {
         const repo = repoStrings[i];
         if (repo !== '') {
-            const repoRows = splitSpaces(repo);
+            const repoRows = splitLines(repo);
             repoOutput.push({
                 repo: repoRows[0].replace(/'/g, ""),
-                output: repoRows.slice(1).join(" ")
+                output: repoRows.slice(1).join("\n  ")
             });
         }
     }

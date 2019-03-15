@@ -7,16 +7,25 @@ const printer = require("../utils/printer");
 function parseBranches(output) {
     const branches = {
         lines: [],
-        coloredLines: []
+        greenLines: [],
+        blueLines: [],
+        redLines: []
     }
 
     const rows = splitSpaces(output);
+    let lineSelected = false;
     for (let i = 0; i < rows.length; i++) {
         const row = rows[i];
         if (row === "*") {
-            branches.coloredLines.push(i);
+            lineSelected = true;
         } else {
             branches.lines.push(row);
+            if (lineSelected) {
+                branches.greenLines.push(branches.lines.length - 1);
+                lineSelected = false;
+            } else {
+                branches.blueLines.push(branches.lines.length - 1);
+            }
         }
     }
 

@@ -4,10 +4,14 @@ function printLines(text, tab) {
     for (let i = 0; i < text.lines.length; i++) {
         const row = text.lines[i];
         let print = () => {};
-        if (text.coloredLines.indexOf(i) > -1) {
+        if (text.greenLines.indexOf(i) > -1) {
             print = (s) => console.log(chalk.green(s));
-        } else {
+        } else if (text.blueLines.indexOf(i) > -1) {
             print = (s) => console.log(chalk.blue(s));
+        } else if (text.redLines.indexOf(i) > -1) {
+            print = (s) => console.log(chalk.red(s));
+        } else {
+            print = (s) => console.log(chalk.white(s));
         }
         print(`${tab}${row}`);
     }
