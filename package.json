@@ -1,6 +1,6 @@
 {
   "name": "git-submodule-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A command line tool to simplify working with git submodules.",
   "main": "src/index.js",
   "scripts": {
