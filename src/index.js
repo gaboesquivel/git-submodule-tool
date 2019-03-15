@@ -1,13 +1,6 @@
-import minimist from 'minimist';
+const minimist = require('minimist');
 
-import exec from './cmds/exec';
-import branch from './cmds/branch';
-import status from './cmds/status';
-import commit from './cmds/commit';
-import version from './cmds/version';
-import help from './cmds/help';
-
-export function main() {
+module.exports = () => {
     const args = minimist(process.argv.slice(2));
     const argLine = process.argv.slice(2).join(" ");
 
@@ -24,18 +17,18 @@ export function main() {
     switch (cmd) {
         case 'branch':
             if (args.d || args.D) {
-                exec(argLine);
+                require('./cmds/exec')(argLine);
             } else {
-                branch(args);
+                require('./cmds/branch')(args);
             }
             break;
 
         case 'status':
-            status(args);
+            require('./cmds/status')(args);
             break;
 
         case 'commit':
-            commit(args);
+            require('./cmds/commit')(args);
             break;
 
         case 'checkout':
@@ -44,15 +37,15 @@ export function main() {
         case 'push':
         case 'fetch':
         case 'add':
-            exec(argLine);
+            require('./cmds/exec')(argLine);
             break;
 
         case 'version':
-            version(args);
+            require('./cmds/version')(args);
             break;
 
         case 'help':
-            help(args);
+            require('./cmds/help')(args);
             break;
 
         default:
@@ -60,5 +53,3 @@ export function main() {
             break;
     }
 }
-
-export default main;

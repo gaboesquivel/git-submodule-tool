@@ -1,8 +1,8 @@
-import shell from "shelljs";
+const shell = require("shelljs");
 
-import { splitSpaces } from "../utils/splitSpaces";
-import { parseSubmodules } from "../utils/parseSubmodules";
-import { printParent, printSubmodules } from "../utils/printer";
+const splitSpaces = require("../utils/splitSpaces");
+const parseSubmodules = require("../utils/parseSubmodules");
+const printer = require("../utils/printer");
 
 function parseBranches(output) {
     const branches = {
@@ -32,7 +32,7 @@ function parseChildModuleBranches(output) {
     return repoOutput;
 }
 
-export function branch(args) {
+module.exports = (args) => {
     
     const parentResult = shell.exec('git branch', { silent: true });
     const subModuleResult = shell.exec('git submodule foreach --recursive git branch', { silent: true });
@@ -40,9 +40,7 @@ export function branch(args) {
     const parentBranches = parseBranches(parentResult.stdout);
     const parsedChildren = parseChildModuleBranches(subModuleResult.stdout);
 
-    printParent(parentBranches);
-    printSubmodules(parsedChildren);
+    printer.printParent(parentBranches);
+    printer.printSubmodules(parsedChildren);
 }
-
-export default branch;
 

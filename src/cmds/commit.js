@@ -1,6 +1,6 @@
-import shell from "shelljs";
+const shell = require("shelljs");
 
-export function commit(args) {
+module.exports = (args) => {
     console.log('called gst ', args);
 
     let cmd = 'commit';
@@ -15,5 +15,3 @@ export function commit(args) {
     shell.exec(`git add .`)
     shell.exec(`git ${cmd}`);
 }
-
-export default commit;

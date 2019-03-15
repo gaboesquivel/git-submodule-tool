@@ -1,4 +1,4 @@
-import { splitSpaces } from "./splitSpaces";
+const splitSpaces = require("./splitSpaces");
 
 /**
  * Takes a string of output from a git command run with 'git submodule foreach --recursive'
@@ -35,7 +35,7 @@ import { splitSpaces } from "./splitSpaces";
  * ]
  * ```
  */
-export function parseSubmodules(output) {
+module.exports = (output) => {
     const repoStrings = output.trim().split(/Entering/);
     const repoOutput = [];
     for (let i = 0; i < repoStrings.length; i++) {

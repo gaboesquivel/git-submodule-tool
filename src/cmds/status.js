@@ -1,7 +1,7 @@
-import shell from "shelljs";
+const shell = require("shelljs");
 
 // import splitSpaces from "./utils/splitSpaces"; 
-import { parseSubmodules } from "../utils/parseSubmodules";
+const parseSubmodules = require("../utils/parseSubmodules");
 
 function parseStatuses(rows) {
     const statuses = {
@@ -37,7 +37,7 @@ function parseChildModuleStatuses(output) {
     return repoOutput;
 }
 
-export function status(args) {
+module.exports = (args) => {
     
     const parentResult = shell.exec('git status', { silent: true });
     const subModuleResult = shell.exec('git submodule foreach --recursive git status', { silent: true });
@@ -54,6 +54,4 @@ export function status(args) {
     // printParent(parentBranches);
     // printSubmodules(parsedChildren);
 }
-
-export default status;
 

@@ -1,6 +1,6 @@
-import chalk from 'chalk';
+const chalk = require('chalk');
 
-export function printLines(text, tab) {
+function printLines(text, tab) {
     for (let i = 0; i < text.lines.length; i++) {
         const row = text.lines[i];
         let print = () => {};
@@ -13,17 +13,18 @@ export function printLines(text, tab) {
     }
 }
 
-export function printParent(lines) {
-    console.log('Parent');
-    printLines(lines, "  ");
-    console.log("");
-}
-
-export function printSubmodules(submodules) {
-    console.log('Submodules');
-    submodules.forEach(repo => {
-        console.log(`  ${repo.name}`);
-        printLines(repo.output, "    ");
+module.exports = {
+    printParent: (lines) => {
+        console.log('Parent');
+        printLines(lines, "  ");
         console.log("");
-    });
+    },
+    printSubmodules: (submodules) => {
+        console.log('Submodules');
+        submodules.forEach(repo => {
+            console.log(`  ${repo.name}`);
+            printLines(repo.output, "    ");
+            console.log("");
+        });
+    }
 }

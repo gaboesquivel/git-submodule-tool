@@ -1,9 +1,5 @@
-// tslint:disable-next-line
-// import { version as v } from '../../package.json';
+const version = require('../../package.json');
 
-const v = '1.0.0';
-export function version(args) {
-  console.log(`v${v}`)
+module.exports = (args) => {
+  console.log(`v${version}`)
 }
-
-export default version;
