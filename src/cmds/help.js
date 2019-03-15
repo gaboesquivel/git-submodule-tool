@@ -42,11 +42,11 @@ const menus = {
     `,
 
   commit: `
-    gst commit [-m "{your message}]
+    gst commit -m "{your message}"
     
     Does 'git add .' and 'git commit' for each submodule and then the parent.
 
-    If the '-m' flag is specified, it will apply that message to the commit in each repo.
+    The '-m' flag must be specified. The commit message will be applied to each repository. To apply different commit messages to each repo, please use git.
     `,
 
   checkout: `
