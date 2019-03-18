@@ -31,6 +31,10 @@ module.exports = () => {
             require('./cmds/commit')(args);
             break;
 
+        case 'log':
+            require('./cmds/log')();
+            break;
+
         case 'checkout':
         case 'pull':
         case 'reset':
