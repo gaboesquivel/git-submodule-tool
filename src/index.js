@@ -23,6 +23,10 @@ module.exports = () => {
             require('./cmds/update-from')(args);
             break;
 
+        case 'uncommit':
+            require('./cmds/uncommit')();
+            break;
+
         case 'branch':
             if (args.d || args.D) {
                 require('./cmds/exec')(argLine);
