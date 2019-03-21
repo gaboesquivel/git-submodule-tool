@@ -15,6 +15,14 @@ module.exports = () => {
     }
 
     switch (cmd) {
+        case 'latest':
+            require('./cmds/latest')();
+            break;
+
+        case 'update-from':
+            require('./cmds/update-from')(args);
+            break;
+
         case 'branch':
             if (args.d || args.D) {
                 require('./cmds/exec')(argLine);
