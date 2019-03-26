@@ -2,7 +2,7 @@ const shell = require("shelljs");
 
 module.exports = () => {
 
-    const cmd = `git pull --rebase --prune`;
+    const cmd = `git pull`;
     const submoduleCmd = `git submodule foreach --recursive ${cmd}`;
 
     console.log(`
