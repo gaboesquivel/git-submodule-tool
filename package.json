@@ -13,7 +13,7 @@
     "url": "https://github.com/rywils21/git-submodule-tool.git"
   },
   "bin": {
-    "gst": "bin/gst"
+    "submodules": "bin/gst"
   },
   "dependencies": {
     "chalk": "^2.4.2",
